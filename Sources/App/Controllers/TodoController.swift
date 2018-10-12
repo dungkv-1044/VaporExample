@@ -20,4 +20,9 @@ final class TodoController {
             return todo.delete(on: req)
         }.transform(to: .ok)
     }
+    
+    func greet(_ req: Request) throws -> String {
+        let name = try req.parameters.next(String.self)
+        return "Hello! How are you? " + name
+    }
 }
